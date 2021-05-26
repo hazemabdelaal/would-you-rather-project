@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { handleInitialData } from '../actions/index';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import Login from './Login';
@@ -8,6 +10,12 @@ import Leaderboard from './Leaderboard';
 import Error from './Error';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(handleInitialData());
+  }, []);
+
   return (
     <Router>
       <NavBar />
