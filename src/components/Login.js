@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { Route } from 'react-router-dom';
 import { getAuthedUser } from '../actions/authedUser';
+import Home from './Home';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -8,6 +10,8 @@ const Login = () => {
   const selectAuthedUser = e => {
     dispatch(getAuthedUser(e.target.value));
   };
+
+  const handleSelection = () => <Route component={Home} />;
 
   return (
     <div>
@@ -19,7 +23,7 @@ const Login = () => {
         alt="logo"
         className="h-40 w-40 mb-4 mx-auto mt-10"
       />
-      <div className="container border-8 border-gray-400 w-80 mt-10 mx-auto p-10 rounded-lg">
+      <div className="container border-8 border-gray-400 w-96 mt-10 mx-auto p-10 rounded-lg">
         <div className="flex flex-col items-center justify-between">
           <p className="text-center text-3xl font-bold text-gray-500 mb-4">
             Select a User
@@ -32,6 +36,7 @@ const Login = () => {
           <select
             className="m-4 w-40 bg-gray-200 border-4 border-gray-400 focus:outline-none text-xl"
             onChange={selectAuthedUser}
+            onSubmit={handleSelection}
           >
             <option value="0">Select a user</option>
             <option>sarahedo</option>

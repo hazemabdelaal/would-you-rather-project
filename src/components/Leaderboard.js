@@ -12,7 +12,7 @@ const Leaderboard = () => {
   }));
 
   return (
-    <div className="container w-80 mx-auto p-10 rounded-lg flex flex-col items-center">
+    <div className="container w-96 mx-auto p-10 rounded-lg flex flex-col items-center">
       <p className="text-4xl font-bold text-gray-500 mb-4">Top Score</p>
       {scores
         .sort((a, b) => b.total - a.total)

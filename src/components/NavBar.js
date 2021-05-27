@@ -17,8 +17,8 @@ const NavBar = () => {
     <div>
       {authedUser && (
         <div className="text-xl bg-gray-400 leading-10">
-          <div className="flex justify-between items-center mx-auto w-4/6">
-            <div className="flex justify-around">
+          <div className="flex justify-between items-center mx-auto w-screen">
+            <div className="flex justify-around ml-80">
               <Link to="/" className="mx-3 focus:outline-none">
                 Home
               </Link>
@@ -29,7 +29,7 @@ const NavBar = () => {
                 Leaderboard
               </Link>
             </div>
-            <div className="flex justify-between items-center my-2">
+            <div className="flex justify-between items-center my-2 mr-80">
               <img
                 src={users[authedUser].avatarURL}
                 alt="avatar"

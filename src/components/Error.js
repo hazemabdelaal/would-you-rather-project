@@ -2,7 +2,7 @@ import React from 'react';
 
 const Error = () => {
   return (
-    <div className="container border-8 border-gray-400 w-80 mt-32 mx-auto p-10 rounded-lg">
+    <div className="container border-8 border-gray-400 w-96 mt-32 mx-auto p-10 rounded-lg">
       <div className="flex flex-col items-center justify-between">
         <img
           src="/images/wyr.jpg"
