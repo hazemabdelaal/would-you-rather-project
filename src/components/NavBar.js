@@ -36,12 +36,13 @@ const NavBar = () => {
                 className="h-10 w-10 rounded-full"
               />
               <p className="mx-3">Hello, {authedUser}</p>
-              <button
+              <Link
+                to="/"
                 className="mx-3 px-2 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 focus:outline-none"
                 onClick={handleLogout}
               >
                 Logout
-              </button>
+              </Link>
             </div>
           </div>
         </div>

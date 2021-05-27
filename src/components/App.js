@@ -7,6 +7,7 @@ import Login from './Login';
 import Home from './Home';
 import AskQuestion from './AskQuestion';
 import Leaderboard from './Leaderboard';
+import QuestionDetails from './QuestionDetails';
 import Error from './Error';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/ask-question" component={AskQuestion} />
           <Route exact path="/leaderboard" component={Leaderboard} />
+          <Route exact path="/question/:id" component={QuestionDetails} />
           <Route exact path="/error" component={Error} />
         </div>
       )}

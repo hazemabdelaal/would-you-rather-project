@@ -1,33 +1,68 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const QuestionsList = () => {
+const QuestionsList = ({ match }) => {
+  const questions = useSelector(state => state.questions);
+  const users = useSelector(state => state.users);
+
+  const id = match.params.id;
+
+  const question = questions[id];
+  const author = question.author;
+  const avatar = users[author].avatarURL;
+  const votesOnePercent = Math.trunc(
+    (question.optionOne.votes.length * 100) / Object.keys(users).length
+  );
+  const votesTwoPercent = Math.trunc(
+    (question.optionTwo.votes.length * 100) / Object.keys(users).length
+  );
+
   return (
-    <div className="container border-8 border-gray-400 w-96 mt-10 p-10 rounded-lg mx-auto">
-      <div className="flex flex-col items-center justify-between">
-        <img
-          src="/images/wyr.jpg"
-          alt="avatar"
-          className="h-20 w-20 rounded-full mb-4"
-        />
-        <p className="text-center text-2xl font-bold text-gray-500">
-          Would you rather
-        </p>
-        <form action="submit">
-          <div>
-            <p className="bg-gray-400 rounded text-xl my-2 text-center py-1 px-16 text-gray-100">
-              {question.optionOne.text}
-            </p>
-            <div className="divide-dashed text-center font-bold text-gray-500 text-2xl">
-              OR
+    <div className="container w-96 mx-auto p-10 rounded-lg flex flex-col items-center">
+      <p className="text-4xl font-bold text-gray-500 mb-4 mr-4">
+        Question Poll
+      </p>
+      <div className="container border-8 border-gray-400 w-96 mt-8 p-10 rounded-lg mr-4">
+        <div className="flex flex-col items-center justify-between">
+          <img
+            src={avatar}
+            alt="logo"
+            className="h-20 w-20 rounded-full mb-4"
+          />
+          <p className="text-center text-2xl font-bold text-gray-500">
+            Would you rather
+          </p>
+          <div className="w-full py-1">
+            <div className="shadow w-full bg-gray-300">
+              <div
+                className="bg-gray-700 text-lg leading-none py-2 text-center text-white rounded"
+                style={{ width: `${votesTwoPercent}%` }}
+              >
+                {`${votesTwoPercent}%`}
+              </div>
             </div>
-            <p className="bg-gray-400 rounded text-xl my-2 text-center py-1 px-14 text-gray-100">
-              {question.optionTwo.text}
-            </p>
           </div>
-        </form>
-        <button className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl mt-2 focus:outline-none">
-          {button}
-        </button>
+          <div className="divide-dashed text-center font-bold text-gray-500 py-1 text-2xl">
+            OR
+          </div>
+          <div className="w-full py-1">
+            <div className="shadow w-full bg-gray-300">
+              <div
+                className="bg-gray-700 text-lg leading-none py-2 text-center text-white rounded"
+                style={{ width: `${votesOnePercent}%` }}
+              >
+                {`${votesOnePercent}%`}
+              </div>
+            </div>
+          </div>
+          <Link
+            to="/"
+            className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl mt-2 focus:outline-none"
+          >
+            Back to home
+          </Link>
+        </div>
       </div>
     </div>
   );
