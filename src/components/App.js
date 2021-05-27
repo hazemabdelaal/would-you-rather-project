@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { handleInitialData } from '../actions/index';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './NavBar';
@@ -14,18 +14,24 @@ function App() {
 
   useEffect(() => {
     dispatch(handleInitialData());
-  }, []);
+  }, [dispatch]);
+
+  const authedUser = useSelector(state => state.authedUser);
 
   return (
     <Router>
       <NavBar />
-      <div>
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/ask-question" component={AskQuestion} />
-        <Route exact path="/leaderboard" component={Leaderboard} />
-        <Route exact path="/error" component={Error} />
-      </div>
+      {authedUser === null ? (
+        <Route component={Login} />
+      ) : (
+        <div>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/ask-question" component={AskQuestion} />
+          <Route exact path="/leaderboard" component={Leaderboard} />
+          <Route exact path="/error" component={Error} />
+        </div>
+      )}
     </Router>
   );
 }

@@ -6,7 +6,7 @@ const AskQuestion = () => {
       <div className="flex flex-col items-center justify-between">
         <img
           src="/images/wyr.jpg"
-          alt="avatar"
+          alt="logo"
           className="h-20 w-20 rounded-full mb-4"
         />
         <p className="text-center text-2xl font-bold text-gray-500">
