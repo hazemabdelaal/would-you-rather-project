@@ -13,7 +13,7 @@ const Login = ({ history }) => {
 
   const handleSelection = () => <Route component={Home} />;
 
-  if (history.location.pathname.includes('question')) {
+  if (history.location.pathname.includes('questions')) {
     return <Redirect to="/error" />;
   }
 

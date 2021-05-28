@@ -31,7 +31,7 @@ const Question = ({ question, unAnswered, history }) => {
 
     dispatch(handleAnswerQuestion(info));
 
-    history.push(`/question/${info.qid}`);
+    history.push(`/questions/${info.qid}`);
   };
 
   return (
@@ -95,7 +95,7 @@ const Question = ({ question, unAnswered, history }) => {
               </div>
             </div>
             <Link
-              to={`question/${question.id}`}
+              to={`questions/${question.id}`}
               className="py-2 px-6 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl focus:outline-none w-32 ml-20 text-center"
             >
               View Poll
