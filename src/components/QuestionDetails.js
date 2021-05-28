@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 const QuestionsList = ({ match }) => {
   const questions = useSelector(state => state.questions);
   const users = useSelector(state => state.users);
+  const authedUser = useSelector(state => state.authedUser);
 
   const id = match.params.id;
 
   const question = questions[id];
   const author = question.author;
+
   const avatar = users[author].avatarURL;
   const votesOnePercent = Math.trunc(
     (question.optionOne.votes.length * 100) / Object.keys(users).length
@@ -34,25 +36,49 @@ const QuestionsList = ({ match }) => {
             Would you rather
           </p>
           <div className="w-full py-1">
-            <div className="shadow w-full bg-gray-300">
-              <div
-                className="bg-gray-700 text-lg leading-none py-2 text-center text-white rounded"
-                style={{ width: `${votesTwoPercent}%` }}
-              >
-                {`${votesTwoPercent}%`}
-              </div>
+            <div className="flex justify-between items-center">
+              <span className=" text-xs capitalize text-gray-500">
+                {question.optionOne.text}
+              </span>
+              <span className="text-lg capitalize text-gray-500">
+                {`Votes: ${question.optionOne.votes.length} / ${
+                  Object.keys(users).length
+                }`}
+              </span>
             </div>
-          </div>
-          <div className="divide-dashed text-center font-bold text-gray-500 py-1 text-2xl">
-            OR
-          </div>
-          <div className="w-full py-1">
             <div className="shadow w-full bg-gray-300">
               <div
                 className="bg-gray-700 text-lg leading-none py-2 text-center text-white rounded"
                 style={{ width: `${votesOnePercent}%` }}
               >
-                {`${votesOnePercent}%`}
+                {question.optionOne.votes.includes(authedUser)
+                  ? `Selected ${votesOnePercent}%`
+                  : `${votesOnePercent}%`}
+              </div>
+            </div>
+          </div>
+          <div className="divide-dashed text-center font-bold text-gray-500 pt-1 text-2xl">
+            OR
+          </div>
+          <div className="w-full py-1 mb-1 flex flex-col">
+            <div className="flex justify-between items-center">
+              <span className=" text-xs capitalize text-gray-500">
+                {question.optionTwo.votes.includes(author)}
+              </span>
+              <span className="text-lg capitalize text-gray-500">
+                {`Votes: ${question.optionTwo.votes.length} / ${
+                  Object.keys(users).length
+                }`}
+              </span>
+            </div>
+            <div className="shadow w-full bg-gray-300 flex items-center justify-between">
+              <div
+                className="bg-gray-700 text-lg leading-none py-2 text-center text-white rounded order-first"
+                style={{ width: `${votesTwoPercent}%` }}
+              >
+                {question.optionTwo.votes.includes(authedUser)
+                  ? `Selected ${votesTwoPercent}%`
+                  : `${votesTwoPercent}%`}
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Error = () => {
   return (
@@ -12,9 +13,12 @@ const Error = () => {
         <p className="text-center text-2xl font-bold text-gray-500">
           Something went wrong!
         </p>
-        <button className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl mt-4 focus:outline-none">
+        <Link
+          to="/"
+          className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl mt-4 focus:outline-none"
+        >
           Back to home
-        </button>
+        </Link>
       </div>
     </div>
   );

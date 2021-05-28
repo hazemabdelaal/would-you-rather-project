@@ -7,6 +7,7 @@ const authedUser = (state = null, action) => {
   if (action.type === actions.CLEAR_AUTHED_USER) {
     return null;
   }
+
   return state;
 };
 

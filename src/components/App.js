@@ -28,7 +28,7 @@ function App() {
         <div>
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Home} />
-          <Route exact path="/ask-question" component={AskQuestion} />
+          <Route exact path="/add" component={AskQuestion} />
           <Route exact path="/leaderboard" component={Leaderboard} />
           <Route exact path="/question/:id" component={QuestionDetails} />
           <Route exact path="/error" component={Error} />

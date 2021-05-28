@@ -22,7 +22,7 @@ const NavBar = () => {
               <Link to="/" className="mx-3 focus:outline-none">
                 Home
               </Link>
-              <Link to="/ask-question" className="mx-3 focus:outline-none">
+              <Link to="/add" className="mx-3 focus:outline-none">
                 Ask Question
               </Link>
               <Link to="/leaderboard" className="mx-3 focus:outline-none">
