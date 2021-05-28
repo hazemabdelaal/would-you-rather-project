@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { getAuthedUser } from '../actions/authedUser';
 import Home from './Home';
 
-const Login = () => {
+const Login = ({ history }) => {
   const dispatch = useDispatch();
 
   const selectAuthedUser = e => {
@@ -12,6 +12,10 @@ const Login = () => {
   };
 
   const handleSelection = () => <Route component={Home} />;
+
+  if (history.location.pathname.includes('question')) {
+    return <Redirect to="/error" />;
+  }
 
   return (
     <div>
