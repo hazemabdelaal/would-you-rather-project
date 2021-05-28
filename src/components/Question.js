@@ -72,7 +72,10 @@ const Question = ({ question, unAnswered, history }) => {
                 {question.optionTwo.text}
               </button>
             </div>
-            <button className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl focus:outline-none w-32 ml-20">
+            <button
+              className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl focus:outline-none w-32 ml-20"
+              disabled={answer === ''}
+            >
               Confirm
             </button>
           </form>

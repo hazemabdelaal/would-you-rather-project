@@ -63,7 +63,7 @@ const QuestionsList = ({ match }) => {
           <div className="w-full py-1 mb-1 flex flex-col">
             <div className="flex justify-between items-center">
               <span className=" text-xs capitalize text-gray-500">
-                {question.optionTwo.votes.includes(author)}
+                {question.optionTwo.text}
               </span>
               <span className="text-lg capitalize text-gray-500">
                 {`Votes: ${question.optionTwo.votes.length} / ${
