@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, withRouter } from 'react-router-dom';
 import { getAuthedUser } from '../actions/authedUser';
 import Home from './Home';
 
-const Login = ({ history }) => {
+const Login = props => {
+  const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
 
   const selectAuthedUser = e => {
     dispatch(getAuthedUser(e.target.value));
+    setRedirect(true);
   };
 
   const handleSelection = () => <Route component={Home} />;
 
-  if (history.location.pathname.includes('questions')) {
-    return <Redirect to="/error" />;
+  const { from } = props.location.state || { from: { pathname: '/' } };
+
+  if (redirect) {
+    return <Redirect to={from} />;
   }
 
   return (
@@ -53,4 +57,4 @@ const Login = ({ history }) => {
   );
 };
 
-export default Login;
+export default withRouter(Login);
