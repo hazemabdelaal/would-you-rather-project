@@ -10,10 +10,3 @@ export const saveUserQuestion = (authedUser, qid) => ({
   authedUser,
   qid,
 });
-
-export const saveUserQuestionAnswer = (authedUser, qid, option) => ({
-  type: actions.SAVE_USER_QUESTION_ANSWER,
-  authedUser,
-  qid,
-  option,
-});

@@ -1,5 +1,5 @@
 import { getQuestions, saveQuestion, saveQuestionAnswer } from './questions';
-import { getUsers, saveUserQuestion, saveUserQuestionAnswer } from './users';
+import { getUsers, saveUserQuestion } from './users';
 import { getInitialData } from '../utils/apis';
 import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
@@ -25,7 +25,6 @@ export const handleAnswerQuestion = info => dispatch => {
   dispatch(showLoading());
   return _saveQuestionAnswer(info).then(() => {
     dispatch(saveQuestionAnswer(info));
-    dispatch(saveUserQuestionAnswer(info));
     dispatch(hideLoading());
   });
 };
