@@ -31,7 +31,7 @@ const Question = ({ question, unAnswered, history }) => {
 
     dispatch(handleAnswerQuestion(info));
 
-    history.push(`/questions/${info.qid}`);
+    history.push(`/questions/question_${info.qid}`);
   };
 
   return (
@@ -72,7 +72,10 @@ const Question = ({ question, unAnswered, history }) => {
                 {question.optionTwo.text}
               </button>
             </div>
-            <button className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl focus:outline-none w-32 ml-20">
+            <button
+              className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl focus:outline-none w-32 ml-20"
+              disabled={answer === ''}
+            >
               Confirm
             </button>
           </form>
@@ -95,7 +98,7 @@ const Question = ({ question, unAnswered, history }) => {
               </div>
             </div>
             <Link
-              to={`questions/${question.id}`}
+              to={`questions/question_${question.id}`}
               className="py-2 px-6 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl focus:outline-none w-32 ml-20 text-center"
             >
               View Poll

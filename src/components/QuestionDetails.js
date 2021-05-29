@@ -7,17 +7,20 @@ const QuestionsList = ({ match }) => {
   const users = useSelector(state => state.users);
   const authedUser = useSelector(state => state.authedUser);
 
-  const id = match.params.id;
+  const question_id = match.params.question_id;
+  const id = question_id.replace(`question_`, '');
 
   const question = questions[id];
   const author = question.author;
 
   const avatar = users[author].avatarURL;
   const votesOnePercent = Math.trunc(
-    (question.optionOne.votes.length * 100) / Object.keys(users).length
+    (question.optionOne.votes.length * 100) /
+      (question.optionOne.votes.length + question.optionTwo.votes.length) || 0
   );
   const votesTwoPercent = Math.trunc(
-    (question.optionTwo.votes.length * 100) / Object.keys(users).length
+    (question.optionTwo.votes.length * 100) /
+      (question.optionOne.votes.length + question.optionTwo.votes.length) || 0
   );
 
   return (
@@ -63,7 +66,7 @@ const QuestionsList = ({ match }) => {
           <div className="w-full py-1 mb-1 flex flex-col">
             <div className="flex justify-between items-center">
               <span className=" text-xs capitalize text-gray-500">
-                {question.optionTwo.votes.includes(author)}
+                {question.optionTwo.text}
               </span>
               <span className="text-lg capitalize text-gray-500">
                 {`Votes: ${question.optionTwo.votes.length} / ${

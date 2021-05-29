@@ -18,9 +18,9 @@ const questions = (state = {}, action) => {
         ...state[action.info.qid],
         [action.info.answer]: {
           ...state[action.info.qid][action.info.answer],
-          votes: state[action.info.qid][action.info.answer].votes.concat([
-            action.info.authedUser,
-          ]),
+          votes: state[action.info.qid][action.info.answer].votes.concat(
+            action.info.authedUser
+          ),
         },
       },
     };
