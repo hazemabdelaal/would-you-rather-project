@@ -12,37 +12,41 @@ const Leaderboard = () => {
   }));
 
   return (
-    <div className="container w-96 mx-auto p-10 rounded-lg flex flex-col items-center">
-      <p className="text-4xl font-bold text-gray-500 mb-4">Top Score</p>
+    <div className="my-5 py-5 mx-2 sm:w-3/4 sm:mx-auto lg:w-3/5 text-center">
+      <p className="text-main text-2xl font-bold md:text-3xl lg:text-4xl xl:text-5xl">
+        Top Score
+      </p>
       {scores
         .sort((a, b) => b.total - a.total)
         .map(user => (
           <div
-            className="flex flex-col items-center justify-center border-4 border-gray-400 w-60 p-4 rounded-lg my-2"
+            className="my-5 border-2 border-main py-5 mx-2 rounded-xl sm:w-3/4 sm:mx-auto lg:w-3/5"
             key={user.id}
           >
-            <img
-              src={users[user.id].avatarURL}
-              alt="avatar"
-              className="h-20 w-20 rounded-full"
-            />
-            <p className="text-center text-3xl font-bold text-gray-500 mb-4">
-              {users[user.id].name}
-            </p>
-            <div className="container border-4 border-gray-400 rounded-lg text-xl text-gray-500 py-1 px-2 font-semibold tracking-wide">
-              <div>
-                <p>
-                  <span className="mr-1">Score:</span>
-                  {user.total}
-                </p>
-                <p>
-                  <span className="mr-1">Answered:</span>
-                  {Object.keys(users[user.id].answers).length}
-                </p>
-                <p>
-                  <span className="mr-1">Asked:</span>
-                  {users[user.id].questions.length}
-                </p>
+            <div className="flex flex-col items-center justify-between">
+              <img
+                src={users[user.id].avatarURL}
+                alt="avatar"
+                className="h-20 w-20 rounded-full mb-5"
+              />
+              <p className="text-xl text-main font-semibold xl:text-2xl">
+                {users[user.id].name}
+              </p>
+              <div className="flex flex-col items-center w-full px-10 my-5 sm:px-14 md:px-36 py-2 capitalize text-main font-bold text-xl xl:text-2xl text-center">
+                <div>
+                  <p>
+                    <span className="mr-1">Score:</span>
+                    {user.total}
+                  </p>
+                  <p>
+                    <span className="mr-1">Answered:</span>
+                    {Object.keys(users[user.id].answers).length}
+                  </p>
+                  <p>
+                    <span className="mr-1">Asked:</span>
+                    {users[user.id].questions.length}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

@@ -22,35 +22,37 @@ const Login = props => {
   }
 
   return (
-    <div>
-      <p className="text-center text-3xl font-bold text-gray-500 mt-20">
-        Welcome to Would You Rather
-      </p>
-      <img
-        src="/images/wyr.jpg"
-        alt="logo"
-        className="h-40 w-40 mb-4 mx-auto mt-10"
-      />
-      <div className="container border-8 border-gray-400 w-96 mt-10 mx-auto p-10 rounded-lg">
-        <div className="flex flex-col items-center justify-between">
-          <p className="text-center text-3xl font-bold text-gray-500 mb-4">
-            Select a User
+    <div className="flex justify-center items-center h-screen border-2 text-center">
+      <div className="flex flex-col justify-between h-2/4 items-center m-5 m-2/4">
+        <div className="flex flex-col justify-between items-center">
+          <p className="text-2xl lg:text-4xl font-bold text-main">
+            Ready to play Would You Rather?
           </p>
           <img
-            src="/images/search.jpg"
-            alt="avatar"
-            className="h-20 w-20 rounded-full"
+            src="/images/wyr.jpg"
+            alt="logo"
+            className="h-28 w-28 mx-auto my-5 lg:h-40 lg:w-40 lg:my-10"
           />
-          <select
-            className="m-4 w-40 bg-gray-200 border-4 border-gray-400 focus:outline-none text-xl"
-            onChange={selectAuthedUser}
-            onSubmit={handleSelection}
-          >
-            <option value="0">Select a user</option>
-            <option>sarahedo</option>
-            <option>tylermcginnis</option>
-            <option>johndoe</option>
-          </select>
+        </div>
+        <div className="border-8 border-main py-5 px-10 w-full rounded-xl">
+          <div className="flex flex-col justify-between items-center">
+            <p className="text-xl font-semibold lg:text-2xl">Select a User</p>
+            <img
+              src="/images/search.jpg"
+              alt="avatar"
+              className="h-14 w-14 rounded-full mx-auto my-2 lg:h-20 lg:w-20 lg:my-4"
+            />
+            <select
+              className="text-center text-lg lg:text-2xl"
+              onChange={selectAuthedUser}
+              onSubmit={handleSelection}
+            >
+              <option value="0">Select</option>
+              <option>sarahedo</option>
+              <option>tylermcginnis</option>
+              <option>johndoe</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>

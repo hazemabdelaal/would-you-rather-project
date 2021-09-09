@@ -28,21 +28,15 @@ const Home = () => {
   );
 
   return (
-    <div>
-      <div className="mx-auto mt-5 flex justify-center py-3 relative">
-        <div className="text-center mx-auto">
-          <button
-            className="font-semibold text-2xl text-gray-100 border-2 bg-gray-500 rounded-lg py-1 px-2 hover:bg-gray-600 hover:text-gray-100 ml-20 focus:outline-none focus:bg-gray-600"
-            onClick={() => setUnAnswered(false)}
-          >
+    <div className="my-5">
+      <div className="flex flex-col justify-center items-center text-secondary text-xl sm:flex-row sm:justify-between lg:justify-center lg:text-2xl xl:text-3xl">
+        <div className="text-center mx-5 bg-main py-2 w-3/4 sm:w-2/4 md:w-1/4 md:mx-auto rounded-xl mb-5 sm:mb-0 hover:bg-blue hover:text-main">
+          <button className="font-bold" onClick={() => setUnAnswered(false)}>
             Answered
           </button>
         </div>
-        <div className="text-center mx-auto">
-          <button
-            className="font-semibold text-2xl text-gray-100 border-2 bg-gray-500 rounded-lg py-1 px-2 hover:bg-gray-600 hover:text-gray-100 mr-10 focus:outline-none focus:bg-gray-600"
-            onClick={() => setUnAnswered(true)}
-          >
+        <div className="text-center mx-5 bg-main py-2 w-3/4 sm:w-2/4 md:w-1/4 md:mx-auto rounded-xl hover:bg-blue hover:text-main">
+          <button className="font-bold" onClick={() => setUnAnswered(true)}>
             Un Answered
           </button>
         </div>

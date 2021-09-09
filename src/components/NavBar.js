@@ -14,39 +14,41 @@ const NavBar = () => {
   };
 
   return (
-    <div>
-      {authedUser && (
-        <div className="text-xl bg-gray-400 leading-10">
-          <div className="flex justify-between items-center mx-auto w-screen">
-            <div className="flex justify-around ml-80">
-              <Link to="/" className="mx-3 focus:outline-none">
+    <div className="bg-main">
+      <div className="mx-5">
+        {authedUser && (
+          <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center px-5 text-secondary text-lg font-semibold md:text-xl lg:text-2xl xl:text-3xl">
+              <Link to="/" className="">
                 Home
               </Link>
-              <Link to="/add" className="mx-3 focus:outline-none">
-                Ask Question
+              <Link to="/add" className="mx-5">
+                Ask
               </Link>
-              <Link to="/leaderboard" className="mx-3 focus:outline-none">
+              <Link to="/leaderboard" className="">
                 Leaderboard
               </Link>
             </div>
-            <div className="flex justify-between items-center my-2 mr-80">
+            <div className="flex flex-between items-center text-lg md:text-xl font-semibold lg:text-2xl xl:text-3xl">
               <img
                 src={users[authedUser].avatarURL}
                 alt="avatar"
-                className="h-10 w-10 rounded-full"
+                className="h-10 w-10 rounded-full hidden sm:block xl:h-16 xl:w-16"
               />
-              <p className="mx-3">Hello, {authedUser}</p>
+              <p className="mx-3 text-secondary hidden sm:block">
+                Hello, {authedUser}
+              </p>
               <Link
                 to="/"
-                className="mx-3 px-2 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 focus:outline-none"
+                className="border-2 px-2 py-1 my-3 border-red rounded-xl hover:bg-red text-secondary"
                 onClick={handleLogout}
               >
                 Logout
               </Link>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

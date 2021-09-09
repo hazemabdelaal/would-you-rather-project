@@ -35,45 +35,40 @@ const Question = ({ question, unAnswered, history }) => {
   };
 
   return (
-    <div className="container border-8 border-gray-400 w-96 mt-10 p-10 rounded-lg mx-auto">
+    <div className="my-5 border-2 border-main py-5 mx-2 rounded-xl sm:w-3/4 sm:mx-auto lg:w-3/5">
       <div className="flex flex-col items-center justify-between">
         <img
           src={avatar}
           alt="avatar"
-          className="h-20 w-20 rounded-full mb-4"
+          className="h-20 w-20 rounded-full mb-5"
         />
-        <p className="text-center text-2xl font-bold text-gray-500">
+        <p className="text-xl text-main font-semibold xl:text-2xl">
           Would you rather
         </p>
         {unAnswered ? (
           <form
-            className="flex flex-col justify-center"
+            className="flex flex-col items-center w-full px-10 my-5 sm:px-14 md:px-36"
             onSubmit={handleOptionSubmit}
           >
-            <div className="flex relative">
-              <button
-                className="cursor-pointer bg-gray-400 rounded text-xl my-2 text-center focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent focus:bg-gray-700 border-transparent py-1 px-14 text-gray-100 capitalize hover:bg-gray-500 w-full checked:bg-gray-600"
-                value="optionOne"
-                onClick={handleOptionClick}
-              >
-                {question.optionOne.text}
-              </button>
-            </div>
-            <div className="divide-dashed text-center font-bold text-gray-500 text-2xl">
+            <button
+              className="cursor-pointer w-full bg-main rounded py-2 capitalize text-secondary font-bold text-xl xl:text-2xl"
+              value="optionOne"
+              onClick={handleOptionClick}
+            >
+              {question.optionOne.text}
+            </button>
+            <div className="divide-dashed text-center font-bold text-red text-2xl my-2 tracking-wide xl:text-3xl">
               OR
             </div>
-            <div className="items-center">
-              <button
-                className="cursor-pointer bg-gray-400 rounded text-xl my-2 text-center focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent 
-                  focus:bg-gray-700 border-transparent py-1 px-14 text-gray-100 capitalize hover:bg-gray-500 w-72 mb-4"
-                value="optionTwo"
-                onClick={handleOptionClick}
-              >
-                {question.optionTwo.text}
-              </button>
-            </div>
             <button
-              className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl focus:outline-none w-32 ml-20"
+              className="cursor-pointer w-full bg-main rounded py-2 px-4 capitalize text-secondary font-bold text-xl xl:text-2xl"
+              value="optionTwo"
+              onClick={handleOptionClick}
+            >
+              {question.optionTwo.text}
+            </button>
+            <button
+              className="py-2 px-4 bg-red rounded text-secondary text-xl focus:outline-none mx-auto font-semibold mt-5 xl:text-2xl"
               disabled={answer === ''}
             >
               Confirm
@@ -81,25 +76,21 @@ const Question = ({ question, unAnswered, history }) => {
           </form>
         ) : (
           <form
-            className="flex flex-col justify-center"
+            className="flex flex-col items-center w-full px-10 my-5 sm:px-14 md:px-36"
             onSubmit={handleOptionSubmit}
           >
-            <div className="items-center">
-              <div className="bg-gray-400 rounded text-xl my-2 text-center border-transparent text-gray-100 py-1 px-14 capitalize w-72">
-                {question.optionOne.text}
-              </div>
+            <div className="w-full bg-main rounded py-2 capitalize text-secondary font-bold text-xl text-center xl:text-2xl">
+              {question.optionOne.text}
             </div>
-            <div className="divide-dashed text-center font-bold text-gray-500 text-2xl">
+            <div className="divide-dashed text-center font-bold text-red text-2xl my-2 tracking-wide xl:text-3xl">
               OR
             </div>
-            <div className="items-center">
-              <div className="bg-gray-400 rounded text-xl my-2 text-center border-transparent text-gray-100 py-1 px-14 capitalize w-72 mb-4">
-                {question.optionTwo.text}
-              </div>
+            <div className="text-center w-full bg-main rounded py-2 px-4 capitalize text-secondary font-bold text-xl xl:text-2xl">
+              {question.optionTwo.text}
             </div>
             <Link
               to={`questions/question_${question.id}`}
-              className="py-2 px-6 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl focus:outline-none w-32 ml-20 text-center"
+              className="py-2 px-4 bg-red rounded text-secondary text-xl focus:outline-none mx-auto mt-5 font-semibold xl:text-2xl"
             >
               View Poll
             </Link>

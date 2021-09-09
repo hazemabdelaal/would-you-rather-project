@@ -32,34 +32,34 @@ const QuestionsList = ({ match }) => {
     <div>
       {question.optionOne.votes.includes(authedUser) ||
       question.optionTwo.votes.includes(authedUser) ? (
-        <div className="container w-96 mx-auto p-10 rounded-lg flex flex-col items-center">
-          <p className="text-4xl font-bold text-gray-500 mb-4 mr-4">
+        <div className="my-5 py-5 mx-2 sm:w-3/4 sm:mx-auto lg:w-3/5 text-center">
+          <p className="text-main text-2xl font-bold md:text-3xl lg:text-4xl xl:text-5xl">
             Question Poll
           </p>
-          <div className="container border-8 border-gray-400 w-96 mt-8 p-10 rounded-lg mr-4">
+          <div className="my-5 border-2 border-main py-5 mx-2 rounded-xl sm:w-3/4 sm:mx-auto lg:w-3/5">
             <div className="flex flex-col items-center justify-between">
               <img
                 src={avatar}
                 alt="logo"
-                className="h-20 w-20 rounded-full mb-4"
+                className="h-20 w-20 rounded-full mb-5"
               />
-              <p className="text-center text-2xl font-bold text-gray-500">
+              <p className="text-xl text-main font-semibold xl:text-2xl">
                 Would you rather
               </p>
-              <div className="w-full py-1">
-                <div className="flex justify-between items-center">
-                  <span className=" text-xs capitalize text-gray-500">
+              <div className="flex flex-col items-center w-full px-10 my-5">
+                <div className="flex justify-between items-center w-full">
+                  <span className="text-xs capitalize text-main">
                     {question.optionOne.text}
                   </span>
-                  <span className="text-lg capitalize text-gray-500">
+                  <span className="text-xs capitalize text-main">
                     {`Votes: ${question.optionOne.votes.length} / ${
                       Object.keys(users).length
                     }`}
                   </span>
                 </div>
-                <div className="shadow w-full bg-gray-300">
+                <div className="shadow w-full bg-secondary border-2 border-red">
                   <div
-                    className="bg-gray-700 text-lg leading-none py-2 text-center text-white rounded"
+                    className="w-full bg-main py-2 capitalize text-secondary font-bold text-xl xl:text-2xl text-center"
                     style={{ width: `${votesOnePercent}%` }}
                   >
                     {question.optionOne.votes.includes(authedUser)
@@ -68,23 +68,23 @@ const QuestionsList = ({ match }) => {
                   </div>
                 </div>
               </div>
-              <div className="divide-dashed text-center font-bold text-gray-500 pt-1 text-2xl">
+              <div className="divide-dashed text-center font-bold text-red text-2xl my-2 tracking-wide xl:text-3xl">
                 OR
               </div>
-              <div className="w-full py-1 mb-1 flex flex-col">
-                <div className="flex justify-between items-center">
-                  <span className=" text-xs capitalize text-gray-500">
+              <div className="flex flex-col items-center w-full px-10 my-5">
+                <div className="flex justify-between items-center w-full">
+                  <span className=" text-xs capitalize text-main">
                     {question.optionTwo.text}
                   </span>
-                  <span className="text-lg capitalize text-gray-500">
+                  <span className="text-xs capitalize text-main">
                     {`Votes: ${question.optionTwo.votes.length} / ${
                       Object.keys(users).length
                     }`}
                   </span>
                 </div>
-                <div className="shadow w-full bg-gray-300 flex items-center justify-between">
+                <div className="shadow w-full bg-secondary border-2 border-red">
                   <div
-                    className="bg-gray-700 text-lg leading-none py-2 text-center text-white rounded order-first"
+                    className="w-full bg-main py-2 capitalize text-secondary font-bold text-xl xl:text-2xl text-center"
                     style={{ width: `${votesTwoPercent}%` }}
                   >
                     {question.optionTwo.votes.includes(authedUser)
@@ -95,7 +95,7 @@ const QuestionsList = ({ match }) => {
               </div>
               <Link
                 to="/"
-                className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl mt-2 focus:outline-none"
+                className="py-2 px-4 bg-main rounded text-secondary text-xl focus:outline-none mx-auto font-semibold mt-5 xl:text-2xl"
               >
                 Back to home
               </Link>

@@ -50,40 +50,40 @@ const AskQuestion = ({ history }) => {
   };
 
   return (
-    <div className="container w-96 mx-auto p-10 rounded-lg flex flex-col items-center">
-      <p className="text-4xl font-bold text-gray-500 mb-4 mr-4">
+    <div className="my-5 py-5 mx-2 sm:w-3/4 sm:mx-auto lg:w-3/5 text-center">
+      <p className="text-main text-2xl font-bold md:text-3xl lg:text-4xl xl:text-5xl">
         Your Question
       </p>
-      <div className="container border-8 border-gray-400 w-96 mt-8 p-10 rounded-lg mr-4">
+      <div className="my-5 border-2 border-main py-5 mx-2 rounded-xl sm:w-3/4 sm:mx-auto lg:w-3/5">
         <div className="flex flex-col items-center justify-between">
           <img
             src={avatar}
             alt="logo"
-            className="h-20 w-20 rounded-full mb-4"
+            className="h-20 w-20 rounded-full mb-5"
           />
-          <p className="text-center text-2xl font-bold text-gray-500">
+          <p className="text-xl text-main font-semibold xl:text-2xl">
             Would you rather
           </p>
-          <form>
+          <form className="flex flex-col items-center w-full px-10 my-5 sm:px-14 md:px-36">
             <input
               type="text"
-              className="bg-gray-200 rounded text-xl my-2 text-center focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent border-transparent py-1 text-gray-500 capitalize"
+              className="w-full bg-main rounded py-2 capitalize text-secondary font-bold text-xl xl:text-2xl text-center placeholder-secondary"
               placeholder="Option One"
               onChange={e => handleOptionOne(e)}
             />
-            <div className="divide-dashed text-center font-bold text-gray-500 text-2xl">
+            <div className="divide-dashed text-center font-bold text-red text-2xl my-2 tracking-wide xl:text-3xl">
               OR
             </div>
             <input
               type="text"
-              className="bg-gray-200 rounded text-xl my-2 text-center focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent border-transparent py-1 text-gray-500 mb-4 capitalize"
+              className="w-full bg-main rounded py-2 capitalize text-secondary font-bold text-xl xl:text-2xl text-center placeholder-secondary"
               placeholder="Option Two"
               onChange={e => handleOptionTwo(e)}
             />
           </form>
           <button
             to="/"
-            className="py-2 px-4 bg-gray-500 rounded hover:bg-gray-600 text-gray-100 text-xl focus:outline-none w-32 mx-auto text-center"
+            className="py-2 px-4 bg-red rounded text-secondary text-xl focus:outline-none mx-auto font-semibold mt-5 xl:text-2xl"
             onClick={handleQuestionSubmit}
           >
             Confirm
