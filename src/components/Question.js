@@ -35,14 +35,14 @@ const Question = ({ question, unAnswered, history }) => {
   };
 
   return (
-    <div className="my-5 border-2 border-main py-5 mx-2 rounded-xl sm:w-3/4 sm:mx-auto lg:w-3/5">
+    <div className="py-5 mx-2 my-5 border-2 border-main rounded-xl sm:w-3/4 sm:mx-auto lg:w-3/5">
       <div className="flex flex-col items-center justify-between">
         <img
           src={avatar}
           alt="avatar"
-          className="h-20 w-20 rounded-full mb-5"
+          className="w-20 h-20 mb-5 rounded-full"
         />
-        <p className="text-xl text-main font-semibold xl:text-2xl">
+        <p className="text-xl font-semibold text-main xl:text-2xl">
           Would you rather
         </p>
         {unAnswered ? (
@@ -51,24 +51,24 @@ const Question = ({ question, unAnswered, history }) => {
             onSubmit={handleOptionSubmit}
           >
             <button
-              className="cursor-pointer w-full bg-main rounded py-2 capitalize text-secondary font-bold text-xl xl:text-2xl"
+              className="w-full py-2 text-xl font-bold capitalize rounded cursor-pointer bg-main text-secondary xl:text-2xl focus:bg-blue"
               value="optionOne"
               onClick={handleOptionClick}
             >
               {question.optionOne.text}
             </button>
-            <div className="divide-dashed text-center font-bold text-red text-2xl my-2 tracking-wide xl:text-3xl">
+            <div className="my-2 text-2xl font-bold tracking-wide text-center divide-dashed text-red xl:text-3xl">
               OR
             </div>
             <button
-              className="cursor-pointer w-full bg-main rounded py-2 px-4 capitalize text-secondary font-bold text-xl xl:text-2xl"
+              className="w-full px-4 py-2 text-xl font-bold capitalize rounded cursor-pointer bg-main text-secondary xl:text-2xl focus:bg-blue"
               value="optionTwo"
               onClick={handleOptionClick}
             >
               {question.optionTwo.text}
             </button>
             <button
-              className="py-2 px-4 bg-red rounded text-secondary text-xl focus:outline-none mx-auto font-semibold mt-5 xl:text-2xl"
+              className="px-4 py-2 mx-auto mt-5 text-xl font-semibold rounded bg-red text-secondary focus:outline-none xl:text-2xl"
               disabled={answer === ''}
             >
               Confirm
@@ -79,18 +79,18 @@ const Question = ({ question, unAnswered, history }) => {
             className="flex flex-col items-center w-full px-10 my-5 sm:px-14 md:px-36"
             onSubmit={handleOptionSubmit}
           >
-            <div className="w-full bg-main rounded py-2 capitalize text-secondary font-bold text-xl text-center xl:text-2xl">
+            <div className="w-full py-2 text-xl font-bold text-center capitalize rounded bg-main text-secondary xl:text-2xl">
               {question.optionOne.text}
             </div>
-            <div className="divide-dashed text-center font-bold text-red text-2xl my-2 tracking-wide xl:text-3xl">
+            <div className="my-2 text-2xl font-bold tracking-wide text-center divide-dashed text-red xl:text-3xl">
               OR
             </div>
-            <div className="text-center w-full bg-main rounded py-2 px-4 capitalize text-secondary font-bold text-xl xl:text-2xl">
+            <div className="w-full px-4 py-2 text-xl font-bold text-center capitalize rounded bg-main text-secondary xl:text-2xl">
               {question.optionTwo.text}
             </div>
             <Link
               to={`questions/question_${question.id}`}
-              className="py-2 px-4 bg-red rounded text-secondary text-xl focus:outline-none mx-auto mt-5 font-semibold xl:text-2xl"
+              className="px-4 py-2 mx-auto mt-5 text-xl font-semibold rounded bg-red text-secondary focus:outline-none xl:text-2xl"
             >
               View Poll
             </Link>
