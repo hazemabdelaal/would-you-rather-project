@@ -29,14 +29,20 @@ const Home = () => {
 
   return (
     <div className="my-5">
-      <div className="flex flex-col justify-center items-center text-secondary text-xl sm:flex-row sm:justify-between lg:justify-center lg:text-2xl xl:text-3xl">
-        <div className="text-center mx-5 bg-main py-2 w-3/4 sm:w-2/4 md:w-1/4 md:mx-auto rounded-xl mb-5 sm:mb-0 hover:bg-blue hover:text-main">
-          <button className="font-bold" onClick={() => setUnAnswered(false)}>
+      <div className="flex flex-col items-center justify-center text-xl text-secondary sm:flex-row sm:justify-between lg:justify-center lg:text-2xl xl:text-3xl">
+        <div className="w-3/4 py-2 mx-5 mb-5 text-center border-2 bg-main sm:w-2/4 md:w-1/4 md:mx-auto rounded-xl sm:mb-0">
+          <button
+            className="font-bold focus:text-blue"
+            onClick={() => setUnAnswered(false)}
+          >
             Answered
           </button>
         </div>
-        <div className="text-center mx-5 bg-main py-2 w-3/4 sm:w-2/4 md:w-1/4 md:mx-auto rounded-xl hover:bg-blue hover:text-main">
-          <button className="font-bold" onClick={() => setUnAnswered(true)}>
+        <div className="w-3/4 py-2 mx-5 text-center border-2 bg-main sm:w-2/4 md:w-1/4 md:mx-auto rounded-xl">
+          <button
+            className="font-bold focus:text-blue"
+            onClick={() => setUnAnswered(true)}
+          >
             Un Answered
           </button>
         </div>
